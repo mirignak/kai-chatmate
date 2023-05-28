@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from chatgpt import generate_response
+from tokenizer import count_words
 
 app = Flask(__name__)
 
@@ -12,7 +13,7 @@ data = [
 @app.route('/')
 def home():
     return 'Home'
-@app.route('/api/chat', method=['POST'])
+@app.route('/api/chat', methods=['POST'])
 def chat():
     data = request.json
     message = data['message']
@@ -26,6 +27,16 @@ def chat():
 @app.route('/api/data', methods=['GET'])
 def get_data():
     return jsonify(data)
+
+@app.route('/api/test', methods=['GET'])
+def test():
+    return 'Test success'
+
+@app.route('/api/count/', methods=['GET'])
+def count():
+    text = request.args.get('text')
+    count = count_words(text)
+    return count
 
 @app.route('/api/data/<int:data_id>', methods=['GET'])
 def get_single_data(data_id):
