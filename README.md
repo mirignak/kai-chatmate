@@ -15,7 +15,7 @@
 ## Enviroment
 Python
 ## Install Packages
-`pip install flask openai tensorflow`
+`pip install -r requirements.txt`
 ## Command
 - Run on dev : python app.py
 
