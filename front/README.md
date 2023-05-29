@@ -15,3 +15,6 @@ samples, guidance on mobile development, and a full API reference.
 - npm
 - flutter sdk
 
+## 화면 띄워보기
+1. 패키지 다운로드 : `flutter pub get`
+2. 실행
