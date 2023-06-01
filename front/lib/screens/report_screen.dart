@@ -13,7 +13,13 @@ class _ReportScreenState extends State<ReportScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return Scaffold(
+        appBar: AppBar(
+          title: Text('Report'),
+        ),
+        body: Stack(
+          alignment: Alignment.centerLeft,
+          children: [Text('Report')],
+        ));
   }
 }

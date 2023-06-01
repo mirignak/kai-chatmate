@@ -11,12 +11,37 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Expanded(child: Container()),
+            Text('English Chat with GPT'),
+            SizedBox(height: 200),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/speech');
               },
-              child: Text('Go to Speech Screen'),
+              style: ButtonStyle(
+                backgroundColor:
+                    MaterialStateProperty.all<Color>(Colors.blue.shade900),
+                minimumSize: MaterialStateProperty.all(Size(300, 80)),
+                textStyle: MaterialStateProperty.all<TextStyle>(
+                    TextStyle(fontSize: 20, fontWeight: FontWeight.w500)),
+              ),
+              child: Text('Start Conversation'),
             ),
+            Spacer(),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/settings');
+              },
+              child: Text('Settings'),
+            ),
+            SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/report');
+              },
+              child: Text('Report'),
+            ),
+            SizedBox(height: 50),
           ],
         ),
       ),
