@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
-from server.controllers.chatgpt import generate_response
-from server.controllers.tokenizer import count_words
+from controllers.chatgpt import generate_response
+from controllers.tokenizer import count_words
 
 app = Flask(__name__)
 
