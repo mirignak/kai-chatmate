@@ -25,7 +25,7 @@ class APIService {
     }
   }
 
-  static Future<void> getLevel() async {
+  static Future<int> getLevel(String message) async {
     final url =
         Uri.parse('http://localhost:5000/api/endpoint'); // python server의 url
     try {
@@ -34,11 +34,13 @@ class APIService {
       if (response.statusCode == 200) {
         print('API 호출 성공');
         print(response.body); // 응답의 내용 출력
+        return 1; //level
       } else {
         print('API 호출 실패');
       }
     } catch (e) {
       print('API 호출 중 오류 발생: $e');
     }
+    return -1;
   }
 }

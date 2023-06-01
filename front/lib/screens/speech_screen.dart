@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:flat/services/text_analysis_service.dart';
 import 'package:flutter/material.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 
@@ -10,7 +11,6 @@ class SpeechScreen extends StatefulWidget {
 class _SpeechScreenState extends State<SpeechScreen> {
   stt.SpeechToText _speechToText = stt.SpeechToText();
   String _recognizedText = '';
-  // List<String> _recognizedTextList = [];
   bool _isListening = false;
 
   @override
@@ -111,6 +111,6 @@ class _SpeechScreenState extends State<SpeechScreen> {
     setState(() {
       _isListening = false;
     });
-    // todo api call
+    TextAnalysisService.analysis(_recognizedText);
   }
 }
