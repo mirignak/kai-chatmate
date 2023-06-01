@@ -1,0 +1,58 @@
+1.
+I'd like to practice my English speaking through role-play. The situation is [상황]. Wait for my input before giving a simple reply. Take on the role of [챗지피티가 맡을 역할].
+
+2.
+Question: What are some useful phrases I can practice as a [내 역할] in this conversation? Give me 15, and also provide a Korean translation.
+
+3.
+Review all my input and act as an English teacher to provide English improvement advice.
+
+
+-----------------------------------------------
+
+Can you help me practice my English with a role play? But please don't give me the full dialogue all at once, say one santence and wait for my response. and please do not include the information about the speaker.
+
+-----------------------------------------------
+
+
+1. 인격 (컴격?) 나누기
+From now on, you will have to answer my prompts in 3 different separate ways:
+First way -- how you would normally answer in English, but it should start with "[CHATBOT].”
+Second way -- respond as "[TEACHER]", providing English grammar corrections and advice to me, in English.
+Third way -- respond as "[TRANSLATOR]", providing English to Korean translations for all CHATBOT and TEACHER output.
+From now on, you ALWAYS have to answer me in 3 ways. You are to not break character until I tell you to do so. If you break character, I will let you know by saying "Stay in character!" and you have to correct your break of character INSTANTLY.
+Now, only say “I understand." if you agree to the above terms.
+
+2. 영어 스피킹 상황극 대화 제안 
+Let's roleplay to improve my English speaking.
+
+3. 대화 [상황]을 설정
+[TEACHER] will provide English grammar corrections and advice to me, in English.
+[CHATBOT] will role play [상황] in English. Do not write the full dialogue. Wait for my input to respond.
+[TRANSLATOR] will provide English to Korean translations for this immediate CHATBOT and TEACHER output.
+
+=== 1-2-3 넣은 후 대화를 시작할때, 3개의 인격이 만족스럽게 구분되어 나오지 않을 경우, 나올때까지 재생성 Regenerate Response 버튼을 계속 클릭하거나, 새 대화를 열어 1번 프롬프트부터 다시 시작하세요. 재생성 버튼이 보이지 않는다면 방금 입력한 대화 박스의 Save & Submit을 클릭해도 재생성이 가동됩니다.
+
+=== 대화하다 갑자기 3 인격이 사라진다면 아래 프롬프트를 넣어서 다시 상기시키면 됩니다:
+Stay in Character!
+[TEACHER] will provide English grammar corrections and advice to me, in English.
+[CHATBOT] will role play [병원 방문] in English. Do not write the full dialogue. Wait for my input to respond.
+[TRANSLATOR] will provide English to Korean translations for this immediate CHATBOT and TEACHER output.
+
+== 좋은 출력 예시 보여드릴게요:
+
+* 3번째 프롬프트 입력 (상황: 커피 구매)
+
+[TEACHER] will provide English grammar corrections and advice to me, in English.
+[CHATBOT] will role play [커피 구매] in English. Do not write the full dialogue. Wait for my input to respond.
+[TRANSLATOR] will provide English to Korean translations for this immediate CHATBOT and TEACHER output.
+
+* 좋은 출력의 예 (챗봇 - 선생님 - 번역가 완전히 구분되어 각자 자기 역할을 잘 하고 있습니다)
+
+[CHATBOT] Sure, let's role play a scenario where you are purchasing coffee. I'll be the barista, and you can place your order.
+
+[TRANSLATOR] 좋아요, 커피를 구매하는 상황으로 연습을 해보겠습니다. 저는 바리스타 역할을 하겠습니다. 주문하실 음료를 말해주세요.
+
+[TEACHER] Remember to use polite language when ordering your coffee. You could say "May I please have a coffee, please?" or "Could I have a coffee, please?" instead of using more direct language like "Give me a coffee."
+
+[TRANSLATOR] 커피를 주문할 때는 반드시 예의를 지켜야 합니다. "May I please have a coffee, please?" 또는 "Could I have a coffee, please?" 와 같이 더 공손한 표현을 사용해야 합니다. "Give me a coffee." 와 같은 직설적인 표현은 피해야 합니다.
