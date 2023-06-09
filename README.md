@@ -7,6 +7,7 @@
 ## Environment
 - flutter
 ## Command
+- Download packages : `flutter pub get`
 - Run on Dev : `flutter run -d chrome`
 - application build: `flutter build web --release -v`
 

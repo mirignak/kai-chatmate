@@ -1,18 +1,10 @@
 import 'package:flat/api/api_services.dart';
 
 class TextAnalysisService {
-  static String analysis(String message) {
+  static Future<String> analysis(String message) async {
     print('analysis service: $message');
-
-    int level = 1;
-    var _currLevel = getLevel(message);
+    var _currLevel = await APIService.getLevel(message);
     print('evaluate level : $_currLevel');
-    //prompt 조립
-    // APIService.queryToGPT(message, level, 'topic');
-    return 'd';
-  }
-
-  static Future<int> getLevel(String message) {
-    return APIService.getLevel(message);
+    return _currLevel;
   }
 }

@@ -1,46 +1,73 @@
+import 'dart:async';
+import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class APIService {
-  static Future<void> queryToGPT(
-      String message, int level, String topic) async {
-    final url = Uri.parse('http://localhost:5000/api/endpoint'); // gpt url
-    try {
-      final response = await http.post(
-        url,
-        body: {
-          'message': message,
-          'level': level.toString(),
-          'topic': topic
-        }, // POST 요청의 body에 전송할 데이터
-      );
+  static Future<String> sendQueryToChatGPT(String prompt) async {
+    const model = 'text-davinci-002';
+    const apiUrl = 'https://api.openai.com/v1/engines/$model/completions';
+    const headers = {
+      'Content-Type': 'application/json',
+      'Authorization':
+          'Bearer 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',
+    };
+    var data = {
+      'prompt': prompt,
+      'temperature': 0.5,
+      'max_tokens': 50,
+      'top_p': 1,
+      'frequency_penalty': 0,
+      'presence_penalty': 0
+    };
 
-      if (response.statusCode == 200) {
-        print('API 호출 성공');
-        print(response.body); // 응답의 내용 출력
-      } else {
-        print('API 호출 실패');
-      }
-    } catch (e) {
-      print('API 호출 중 오류 발생: $e');
+    final response = await http.post(Uri.parse(apiUrl),
+        headers: headers, body: jsonEncode(data));
+
+    if (response.statusCode == 200) {
+      var result = jsonDecode(response.body);
+      var completion = result['choices'][0]['text'];
+      print(completion);
+      return completion;
+    } else {
+      throw Exception(
+          'Failed to send query to ChatGPT: ${response.statusCode}');
     }
   }
 
-  static Future<int> getLevel(String message) async {
-    final url =
-        Uri.parse('http://localhost:5000/api/endpoint'); // python server의 url
-    try {
-      final response = await http.get(url);
+  static void fetchTestData() async {
+    final response =
+        await http.get(Uri.parse('http://127.0.0.1:5000/api/test'));
 
-      if (response.statusCode == 200) {
-        print('API 호출 성공');
-        print(response.body); // 응답의 내용 출력
-        return 1; //level
-      } else {
-        print('API 호출 실패');
-      }
-    } catch (e) {
-      print('API 호출 중 오류 발생: $e');
+    if (response.statusCode == 200) {
+      // 요청이 성공한 경우
+      print(response.body);
+    } else {
+      // 요청이 실패한 경우
+      print('Request failed with status: ${response.statusCode}');
     }
-    return -1;
+  }
+
+  static Future<String> getLevel(String message) async {
+    final response = await http.post(
+      Uri.parse('http://127.0.0.1:5000/api/countlevel/'), // python server의 url
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, String>{
+        'message': message,
+      }),
+    );
+
+    if (response.statusCode == 200) {
+      final result = response.body;
+      final jsonData = jsonDecode(result);
+      final level = jsonData['result'];
+
+      print('API 호출 성공: $level');
+      return level; //level
+    } else {
+      print('Request failed with status: ${response.statusCode}');
+    }
+    return 'error';
   }
 }

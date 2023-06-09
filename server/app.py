@@ -1,8 +1,10 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from controllers.chatgpt import generate_response
-from controllers.tokenizer import count_words
+from controllers.tokenizer import count_level
 
 app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 # 예시로 사용할 데이터
 data = [
@@ -29,13 +31,13 @@ def chat():
 def test():
     return 'Test success'
 
-@app.route('/api/count/', methods=['POST'])
-def count():
+@app.route('/api/countlevel/', methods=['POST'])
+def count_level_api():
     data = request.json
     text = data['message']
     
-    count = count_words(text)
-    return count
+    level = count_level(text)
+    return jsonify(result=level)
 
 @app.route('/api/data', methods=['POST'])
 def create_data():
