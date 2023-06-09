@@ -1,0 +1,75 @@
+{
+  "topics": [
+    {
+      "id": "makeNewFriend",
+      "subject": "새로운 친구 사귀기",
+      "role": ["나", "새로운 친구"]
+    },
+    {
+      "id": "orderCoffee",
+      "subject": "카페에서 커피 주문하기",
+      "role": ["카페에 방문한 손님", "카페 직원"]
+    },
+    {
+      "id": "orderHamburger",
+      "subject": "맥도날드에서 햄버거 주문하기",
+      "role": ["햄버거를 주문하는 손님", "맥도날드 직원"]
+    },
+    {
+      "id": "chooseShoes",
+      "subject": "나이키 매장에서 신발 고르기",
+      "role": ["나이키 매장에 방문한 손님", "나이키 매장 직원"]
+    },
+    {
+      "id": "passImmigration",
+      "subject": "입국심사 통과하기",
+      "role": ["여행객", "입국심사 직원"]
+    },
+    { "id": "reserveHotel", "subject": "전화로 호텔 예약하기", "role": ["호텔을 예약하는 손님", "호텔 직원"] },
+    { "id": "reserveRestaurant", "subject": "전화로 레스토랑 식사 예약하기", "role": ["저녁 식사를 예약하는 손님", "레스토랑 직원"] },
+    { "id": "orderPizza", "subject": "전화로 피자 주문하기", "role": ["피자를 주문하는 손님", "피자가게 직원"] },
+    { "id": "bookMovieTickets", "subject": "영화관에서 영화 예매하기", "role": ["영화관을 방문한 손님", "영화관 직원"] },
+    { "id": "introduceKoreanTouristAttractions", "subject": "외국인 여행객에게 한국 관광명소 소개하기", "role": ["한국인", "외국인 여행객"] },
+    { "id": "lostPassport", "subject": "여행 중 여권을 잃어버린 상황", "role": ["여권을 분실한 여행객", "대사관 직원"] },
+    { "id": "applyNewPassport", "subject": "새로운 여권 신청하기", "role": ["여권 신청자", "외교부 직원"] },
+    { "id": "greetingFiancéFamily", "subject": "약혼자 가족과 인사하기", "role": ["나", "약혼자 가족"] },
+    { "id": "greetingNewColleague", "subject": "새로 입사한 직장 동료와 인사하기", "role": ["기존 회사 직원", "새로 입사한 직장동료"] },
+    { "id": "passImmigrationCheck", "subject": "입국심사 통과하기", "role": ["여행객", "입국심사직원"] }
+  ],
+  "origin": [
+    {
+      "levelCode": "lv01",
+      "levelName": "Beginner",
+      "topics": [
+        { "id": "makeNewFriend", "subject": "새로운 친구 사귀기", "role": ["나", "새로운 친구"] },
+        { "id": "orderCoffee", "subject": "카페에서 커피 주문하기", "role": ["카페에 방문한 손님", "카페 직원"] },
+        { "id": "orderHamburger", "subject": "맥도날드에서 햄버거 주문하기", "role": ["햄버거를 주문하는 손님", "맥도날드 직원"] },
+        { "id": "chooseShoes", "subject": "나이키 매장에서 신발 고르기", "role": ["나이키 매장에 방문한 손님", "나이키 매장 직원"] },
+        { "id": "passImmigration", "subject": "입국심사 통과하기", "role": ["여행객", "입국심사 직원"] }
+      ]
+    },
+    {
+      "levelCode": "lv02",
+      "levelName": "Intermediate",
+      "topics": [
+        { "id": "reserveHotel", "subject": "전화로 호텔 예약하기", "role": ["호텔을 예약하는 손님", "호텔 직원"] },
+        { "id": "reserveRestaurant", "subject": "전화로 레스토랑 식사 예약하기", "role": ["저녁 식사를 예약하는 손님", "레스토랑 직원"] },
+        { "id": "orderPizza", "subject": "전화로 피자 주문하기", "role": ["피자를 주문하는 손님", "피자가게 직원"] },
+        { "id": "bookMovieTickets", "subject": "영화관에서 영화 예매하기", "role": ["영화관을 방문한 손님", "영화관 직원"] },
+        { "id": "introduceKoreanTouristAttractions", "subject": "외국인 여행객에게 한국 관광명소 소개하기", "role": ["한국인", "외국인 여행객"] }
+      ]
+    },
+    {
+      "levelCode": "lv03",
+      "levelName": "Advance",
+      "topics": [
+        { "id": "lostPassport", "subject": "여행 중 여권을 잃어버린 상황", "role": ["여권을 분실한 여행객", "대사관 직원"] },
+        { "id": "applyNewPassport", "subject": "새로운 여권 신청하기", "role": ["여권 신청자", "외교부 직원"] },
+        { "id": "greetingFiancéFamily", "subject": "약혼자 가족과 인사하기", "role": ["나", "약혼자 가족"] },
+        { "id": "greetingNewColleague", "subject": "새로 입사한 직장 동료와 인사하기", "role": ["기존 회사 직원", "새로 입사한 직장동료"] },
+        { "id": "passImmigrationCheck", "subject": "입국심사 통과하기", "role": ["여행객", "입국심사직원"] }
+      ]
+    }
+  ]
+
+}
