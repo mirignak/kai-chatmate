@@ -1,9 +1,9 @@
 # Study with GPT
-- Front : Flutter
+- App : Flutter
 - Server : Python
 
-# Front
-/front
+# App
+/app
 ## Environment
 - flutter
 ## Command
