@@ -1,9 +1,6 @@
-import 'dart:async';
 import 'package:flat/services/text_analysis_service.dart';
 import 'package:flat/services/query_to_openai_service.dart';
 import 'package:flutter/material.dart';
-import 'package:speech_to_text/speech_recognition_error.dart';
-import 'package:speech_to_text/speech_recognition_result.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 import 'package:flat/api/api_services.dart';
 
@@ -17,58 +14,19 @@ class _SpeechScreenState extends State<SpeechScreen> {
   String _recognizedText = '';
   String topicId = 'orderCoffee';
   bool _isListening = false;
-
+  String _generatedText = '';
   @override
   void initState() {
     super.initState();
-    _speechToText = stt.SpeechToText();
+    _initSpeech();
   }
 
-  // bool _hasSpeech = false;
-  // bool _logEvents = false;
-  // bool _onDevice = false;
-  // final TextEditingController _pauseForController =
-  //     TextEditingController(text: '3');
-  // final TextEditingController _listenForController =
-  //     TextEditingController(text: '30');
-  // double level = 0.0;
-  // double minSoundLevel = 50000;
-  // double maxSoundLevel = -50000;
-  // String lastWords = '';
-  // String lastError = '';
-  // String lastStatus = '';
-  // String _currentLocaleId = '';
-  // List<LocaleName> _localeNames = [];
-  // final SpeechToText speech = SpeechToText();
+  void _initSpeech() async {
+    await _speechToText.initialize();
+    // _speechToText = await stt.SpeechToText();
+    // _speechToText.activate(localeId: 'en_US');
+  }
 
-  // Future<void> initSpeechState() async {
-  //     _logEvent('Initialize');
-  //     try {
-  //       var hasSpeech = await speech.initialize(
-  //         onError: errorListener,
-  //         onStatus: statusListener,
-  //         debugLogging: _logEvents,
-  //       );
-  //       if (hasSpeech) {
-  //         // Get the list of languages installed on the supporting platform so they
-  //         // can be displayed in the UI for selection by the user.
-  //         _localeNames = await speech.locales();
-
-  //         var systemLocale = await speech.systemLocale();
-  //         _currentLocaleId = systemLocale?.localeId ?? '';
-  //       }
-  //       if (!mounted) return;
-
-  //       setState(() {
-  //         _hasSpeech = hasSpeech;
-  //       });
-  //     } catch (e) {
-  //       setState(() {
-  //         lastError = 'Speech recognition failed: ${e.toString()}';
-  //         _hasSpeech = false;
-  //       });
-  //     }
-  //   }
   String getTopic() {
     return '주제 : 카페에서 커피 주문하기';
   }
@@ -108,9 +66,28 @@ class _SpeechScreenState extends State<SpeechScreen> {
                       child: Icon(Icons.stop),
                     ),
                     // SpeechInputWidget(),
-                    ElevatedButton(
-                      onPressed: handleClickButton,
-                      child: Text('ask'),
+
+                    // ElevatedButton(
+                    //   onPressed: handleClickButton,
+                    //   child: Text('ask'),
+                    // ),
+                    SizedBox(height: 50),
+                    Container(
+                      // decoration: BoxDecoration(
+                      //   color: Color.fromARGB(255, 157, 219, 255),
+                      // border: Border.all(
+                      //     color: Color.fromARGB(255, 136, 211, 255)),
+                      //   borderRadius: BorderRadius.circular(8),
+                      // ),
+                      constraints: BoxConstraints(
+                          minHeight: 50, minWidth: double.infinity),
+                      padding: EdgeInsets.all(16),
+                      child: Text(
+                        _generatedText,
+                        style: TextStyle(
+                            fontSize: 16,
+                            color: Color.fromARGB(255, 0, 75, 188)),
+                      ),
                     ),
                   ],
                 )),
@@ -179,7 +156,13 @@ class _SpeechScreenState extends State<SpeechScreen> {
     setState(() {
       _isListening = false;
     });
+    sendQueryToGPT();
     TextAnalysisService.analysis(_recognizedText);
-    QueryToOpenAIService.sendQuery(topicId, _recognizedText);
+  }
+
+  void sendQueryToGPT() async {
+    String answer =
+        await QueryToOpenAIService.sendQuery(topicId, _recognizedText);
+    _generatedText = answer;
   }
 }
